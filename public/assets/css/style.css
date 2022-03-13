@@ -1,0 +1,130 @@
+html body {
+    background-color: #ffffff;
+}
+.scrollbar-container {
+    position: relative;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 250px;
+    overflow-x: hidden;
+}
+
+.card.card-no-border{
+    border: 0;
+    box-shadow: 0 0;
+}
+.card.card-no-border .card-header{
+    padding-left: 0;
+    padding-right: 0;
+}
+.card.card-no-border .card-content .card-body{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.url-link{
+    cursor: pointer;
+
+}
+.url-link:hover{
+    font-weight: bold;
+}
+.nav.nav-tabs.nav-top-border .nav-item a {
+    color: #404E67;
+}
+.nav.nav-tabs.nav-top-border .nav-item a.nav-link.active {
+    /*border-top: 3px solid #404E67;*/
+    border-top-color: #404E67;
+}
+.select-role{
+    cursor: pointer;
+}
+.select-role:hover{
+    background-color: #a3b0c9;
+}
+button.action-icon {
+    padding: 0.35rem 0.5rem;
+    border: 1px solid #E6E6E6;
+}
+button.action-icon:hover {
+    background-color: #404E67;
+    color: #FFF;
+}
+.ReactModal__Content:focus, button:focus {
+    outline: none;
+}
+.dropdown .dropdown-menu{
+    transition: none !important;
+}
+.dropdown-menu.dropdown-menu-right.show{
+    /*transform: translate3d(-77px, 19px, 0px) !important;*/
+}
+.action-button .dropdown-toggle::after{
+    content: none !important;
+}
+/*=============================================================*/
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
+body {
+    background: #1C8EF9 !important;
+    min-height: 100vh;
+    display: flex;
+    font-weight: 400;
+}
+
+.auth-inner {
+    width: 1000px;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 40px 55px 45px 55px;
+    border-radius: 15px;
+    transition: all .3s;
+}
+
+.IT {
+    width: 1000px;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 40px 55px 45px 55px;
+    border-radius: 15px;
+    transition: all .3s;
+}
+
+.OT {
+    width: 1000px;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 40px 55px 45px 55px;
+    border-radius: 15px;
+    transition: all .3s;
+}
+
+.custom-control-label {
+    font-weight: 400;
+}
+
+.content-body {
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    transform: translateX(50%);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.list-device {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.list-question {
+    max-height: 400px;
+    overflow-y: scroll;
+}

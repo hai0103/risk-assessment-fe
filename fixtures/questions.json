@@ -1,0 +1,74 @@
+[
+  {
+    "id":"27fbe0d8-d92e-45fa-a01f-28c9ee0b90c2",
+    "title":"Does the system prevent further access to the system by initiating a session lock after a defined time period of inactivity or a user initiated session lock?",
+    "description":null,
+    "group":1
+  },
+  {
+    "id":"7f380cd7-a6e1-48fd-970a-2ea014df33b4",
+    "title":"Is a device verified against a pre-defined list of authorized devices before a connection is established? (e.g., Active Directory policy or firewall rules.)",
+    "description":null,
+    "group":1
+  },
+  {
+    "id":"8aafe369-ce7c-485c-9ebc-358973b7bf08",
+    "title":"Do electronic monitoring mechanisms alert system personnel when unauthorized access or an emergency occurs?",
+    "description":null,
+    "group":1
+  },
+  {
+    "id":"cfaa532c-f941-444e-8ccd-39f4d436bc84",
+    "title":"If your authentication encryption module fails can you still authenticate without creating a denial of service that impacts operational performance of system?",
+    "description":null,
+    "group":1
+  },
+  {
+    "id":"05e3c78a-1db7-46ac-867e-42e6e3138379",
+    "title":"Does the system authenticate devices before establishing remote network connections using bi-directional authentication between devices that are cryptographically based?",
+    "description":null,
+    "group":1
+  },
+  {
+    "id":"443ce908-a394-45ba-8f08-77d363352ae7",
+    "title":"Are periodic reviews conducted of existing authorized physical and electronic access permissions to ensure they are current?",
+    "description":null,
+    "group":1
+  },
+  {
+    "id":"b4826d40-da1d-4a73-98c2-c43977efbc7b",
+    "title":"Does the system enforce assigned authorizations for controlling electronic access to the system?",
+    "description":null,
+    "group":1
+  },
+  {
+    "id":"48158bde-5926-424c-99f9-c6669aa4eaad",
+    "title":"Are access control policies and associated access mechanisms to control access to the system?",
+    "description":null,
+    "group":1
+  },
+  {
+    "id":"194f89e4-8c6c-48f4-8f79-fb4863866644",
+    "title":"Are unique authenticators required to be provided by vendors and manufacturers of system components?",
+    "description":null,
+    "group":2
+  },
+  {
+    "id":"b7ed9d34-878a-4d27-aafc-589bf0de809a",
+    "title":"Are users required to take, and devices implement, specific measures to safeguard authenticators?",
+    "description":null,
+    "group":2
+  },
+  {
+    "id":"8d70096e-c163-4dff-bedd-c4f63d00dd00",
+    "title":"Do the system components separate telemetry/data acquisition services from management port functionality?",
+    "description":null,
+    "group":3
+  },
+  {
+    "id":"426b0b81-c3f4-45e1-a5a3-93881e2ac205",
+    "title":"Is the unauthorized release of information outside the system boundary or any unauthorized communication through the system boundary prevented when an operational failure occurs of the boundary protection mechanisms?",
+    "description":null,
+    "group":3
+  }
+]
