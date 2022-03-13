@@ -152,8 +152,9 @@ function OperationalTechnology() {
           </div>
         )
       })
+    } else {
+     return <h5 className='text-center my-2'>Không có dữ liệu</h5>
     }
-
   }
 
   return (
