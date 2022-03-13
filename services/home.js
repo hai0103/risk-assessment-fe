@@ -5,7 +5,7 @@ export const HomeApi = {
   async getListQuestions(data, headers = {}) {
     return await request(
       'GET',
-      `${API_HOST}/api/processing/get-processing-devices`,
+      `${API_HOST}/api/question/get-questions`,
       data,
       headers
     )
@@ -13,7 +13,7 @@ export const HomeApi = {
   async getListProcessing(data, headers = {}) {
     return await request(
       'GET',
-      `${API_HOST}/api/question/get-questions`,
+      `${API_HOST}/api/processing/get-processing-devices`,
       data,
       headers
     )
@@ -27,7 +27,7 @@ export const HomeApi = {
   },
   async setStatusProcessing(data) {
     return await request(
-      'GET',
+      'POST',
       `${API_HOST}/api/processing/set-status-processing-devices`,
       data
     )

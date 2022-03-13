@@ -34,9 +34,6 @@ function OperationalTechnology() {
     } catch (error) {
       console.log(error);
     }
-    //fake data
-    let lstQuestion = require('../../../fixtures/questions.json')
-    setQuestionData(lstQuestion || [])
   }
 
   useEffect(() => {
