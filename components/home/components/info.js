@@ -28,7 +28,7 @@ function Info() {
           <Controller
             name={`FullName`}
             control={control}
-            defaultValue={''}
+            defaultValue={userInfo?.FullName || ''}
             rules={{
               required: true
             }}
@@ -52,7 +52,7 @@ function Info() {
           <Controller
             name={`BusinessName`}
             control={control}
-            defaultValue={''}
+            defaultValue={userInfo?.BusinessName || ''}
             rules={{
               required: true
             }}
@@ -76,7 +76,7 @@ function Info() {
           <Controller
             name={`Email`}
             control={control}
-            defaultValue={''}
+            defaultValue={userInfo?.Email || ''}
             rules={{
               required: true
             }}
@@ -96,7 +96,9 @@ function Info() {
       <div className='text-right pt-1'>
         <button
           className="btn btn-primary"
-          disabled={!watch('FullName') || !watch('BusinessName') || !watch('Email')}
+          disabled={(!watch('FullName') && !userInfo?.FullName) ||
+          (!watch('BusinessName') && !userInfo?.BusinessName) ||
+          (!watch('Email') && !userInfo?.Email)}
           type="submit"
           onClick={(e) => {
             handleSubmit(save)

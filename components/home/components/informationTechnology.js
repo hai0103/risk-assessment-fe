@@ -9,14 +9,14 @@ function InformationTechnology() {
     step, setStep,
     devices, setDevices,
   } = useHomes()
-  const [countDevice, setCountDevice] = useState(1)
+  const [countDevice, setCountDevice] = useState(devices?.length > 0 ? devices?.length : 1)
   const defaultDevice = {
     DeviceName: '',
     PublicIP: '',
     SSHUserName: '',
     SSHPassword: ''
   }
-  const [lstDevice, setLstDevice] = useState([defaultDevice])
+  const [lstDevice, setLstDevice] = useState(devices?.length > 0 ? devices : [defaultDevice])
 
   const changeCount = (newValue) => {
     if(newValue*1 === 1) {
@@ -71,7 +71,7 @@ function InformationTechnology() {
                       <Controller
                         name={`${prefixControl}.DeviceName`}
                         control={control}
-                        defaultValue={''}
+                        defaultValue={item?.DeviceName || ''}
                         render={(ctrl) => (
                           <input className="form-control form-control-sm"
                                  placeholder="PC-1"
@@ -93,7 +93,7 @@ function InformationTechnology() {
                       <Controller
                         name={`${prefixControl}.PublicIP`}
                         control={control}
-                        defaultValue={''}
+                        defaultValue={item?.PublicIP || ''}
                         render={(ctrl) => (
                           <input className="form-control form-control-sm"
                                  placeholder="xxx.xxx.xxx.xxx"
@@ -115,7 +115,7 @@ function InformationTechnology() {
                       <Controller
                         name={`${prefixControl}.SSHUserName`}
                         control={control}
-                        defaultValue={''}
+                        defaultValue={item?.SSHUserName || ''}
                         render={(ctrl) => (
                           <input className="form-control form-control-sm"
                                  placeholder="admin"
@@ -137,7 +137,7 @@ function InformationTechnology() {
                       <Controller
                         name={`${prefixControl}.SSHPassword`}
                         control={control}
-                        defaultValue={''}
+                        defaultValue={item?.SSHPassword || ''}
                         render={(ctrl) => (
                           <input className="form-control form-control-sm"
                                  placeholder="123456"

@@ -34,9 +34,6 @@ function OperationalTechnology() {
     } catch (error) {
       console.log(error);
     }
-    //fake data
-    let lstQuestion = require('../../../fixtures/questions.json')
-    setQuestionData(lstQuestion || [])
   }
 
   useEffect(() => {
@@ -155,8 +152,9 @@ function OperationalTechnology() {
           </div>
         )
       })
+    } else {
+     return <h5 className='text-center my-2'>Không có dữ liệu</h5>
     }
-
   }
 
   return (
