@@ -2,7 +2,7 @@ import {isNil} from "lodash";
 
 export default class Response {
     static isSuccess(response) {
-        return response.status && response.status === 200;
+        return response.success;
     }
 
     static isSuccessAPI(response) {

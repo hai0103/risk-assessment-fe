@@ -4,7 +4,6 @@ import DataTable from "../../utils/components/dataTable";
 import Utility from "../../utils/utility";
 import {ROUTES} from "../../constants/common";
 import {HomeApi} from "../../services/home";
-import fakeData from "../../fixtures/processing.json";
 import {useToasts} from "react-toast-notifications";
 import {Response} from "../../utils/common";
 import {isEmpty} from "lodash";
@@ -27,9 +26,11 @@ function ProcessingList(props) {
       userId: props.userId
     }
     try {
-      const response = await HomeApi.getListProcessing(payload);
+      const response = (await HomeApi.getListProcessing(payload)).data;
       if (Response.isSuccess(response)) {
-        const data = Response.getData(response).Data;
+        console.log(response);
+        const data = Response.getData(response);
+        console.log(data);
         setLstProcessing(data || [])
         if(!isEmpty(data)){
           let isDone = !data.some(process => process?.status?.toLowerCase() !== 'done') || false
@@ -48,13 +49,13 @@ function ProcessingList(props) {
 
   const changeStatus = async (entity, status) => {
     const payload = {
-      deviceId: entity.id,
+      deviceId: entity.deviceId,
       status
     }
 
     try {
-      const response = await HomeApi.setStatusProcessing(payload);
-      if (Response.isSuccessAPI(response)) {
+      const response = (await HomeApi.setStatusProcessing(payload)).data;
+      if (Response.isSuccess(response)) {
         addToast('Cập nhật trạng thái thành công', {appearance: 'success'})
         getData().catch(e => console.log(e))
       } else {
@@ -97,13 +98,13 @@ function ProcessingList(props) {
     const columns = [
       {
         Header: 'IP address',
-        accessor: 'IP',
+        accessor: 'publicIP',
         className: 'td-6 text-truncate r',
         headerClassName: 'td-6 text-truncate r',
       },
       {
         Header: 'Black/White Box',
-        accessor: 'credential',
+        accessor: 'blackOrWhiteBox',
         className: 'td-9 text-truncate',
         headerClassName: 'td-9 text-truncate',
       },
@@ -118,13 +119,6 @@ function ProcessingList(props) {
         accessor: 'progress',
         className: 'td-4 text-truncate',
         headerClassName: 'td-4 text-truncate',
-      },
-      {
-        Header: ' ',
-        accessor: 'stop',
-        className: 'td-4 text-truncate',
-        headerClassName: 'td-4 text-truncate',
-        Cell: ({value}) => value ? 'Stop' : ''
       },
       {
         Header: "",

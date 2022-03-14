@@ -24,9 +24,9 @@ function OperationalTechnology() {
 
   const getListQuestion = async () => {
     try {
-      const response = await HomeApi.getListQuestions();
+      const response = (await HomeApi.getListQuestions()).data;
       if (Response.isSuccess(response)) {
-        const data = Response.getData(response).Data;
+        const data = Response.getData(response);
         setQuestionData(data || [])
       } else {
         addToast(Response.getAPIError(response), {appearance: 'error'})
@@ -52,14 +52,12 @@ function OperationalTechnology() {
         const payload = {
           userInfo,
           devices,
-          questions: data.lstQuestions
+          answerQuestions: data.lstQuestions
         }
         try {
-          const response = await HomeApi.save(payload);
-          if (Response.isSuccessAPI(response)) {
-            storeData('dataSave', payload)
-
-            const responseId = '123456712412'
+          const response = (await HomeApi.save(payload)).data;
+          if (Response.isSuccess(response)) {
+            const responseId = response.data
             Utility.redirect(`${ROUTES.PROCESSING}/${responseId}`)
             onClose()
           } else {

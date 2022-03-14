@@ -6,4 +6,4 @@ export const ROUTES = {
   PROCESSING: '/processing',
 };
 
-export const API_HOST = "http://localhost:3000"
+export const API_HOST = "https://localhost:44376"

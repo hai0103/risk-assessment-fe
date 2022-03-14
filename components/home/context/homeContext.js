@@ -10,12 +10,6 @@ const HomeProvider = ({children, ...props}) => {
   const [devices, setDevices] = useState([]);
   const [questions, setQuestions] = useState([]);
 
-  useEffect(() => {
-    console.log('>> userInfo', userInfo)
-    console.log('>> devices', devices)
-    console.log('>> questions', questions)
-  }, [userInfo, devices, questions, JSON.stringify(userInfo), JSON.stringify(devices), JSON.stringify(questions)])
-
   return (
     <HomeContext.Provider
       value={{
