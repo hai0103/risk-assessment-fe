@@ -7,14 +7,20 @@ import {HomeApi} from "../../services/home";
 import fakeData from "../../fixtures/processing.json";
 import {useToasts} from "react-toast-notifications";
 import {Response} from "../../utils/common";
+import {isEmpty} from "lodash";
 
 function ProcessingList(props) {
   const {addToast} = useToasts();
   const [lstProcessing, setLstProcessing] = useState([])
+  const [isAllDone, setIsAllDone] = useState(false)
 
   useEffect(() => {
     getData().catch(e => console.log(e))
   }, [])
+
+  let intervalId = setInterval(() => {
+    getData().catch(e => console.log(e))
+  }, 5000)
 
   const getData = async () => {
     const payload = {
@@ -25,16 +31,19 @@ function ProcessingList(props) {
       if (Response.isSuccess(response)) {
         const data = Response.getData(response).Data;
         setLstProcessing(data || [])
+        if(!isEmpty(data)){
+          let isDone = !data.some(process => process?.status?.toLowerCase() !== 'done') || false
+          if(isDone){
+            clearInterval(intervalId)
+            setIsAllDone(isDone)
+          }
+        }
       } else {
         addToast(Response.getAPIError(response), {appearance: 'error'})
       }
     } catch (error) {
       console.log(error);
     }
-
-    //fake data
-    let fakeData = require('../../fixtures/processing.json')
-    setLstProcessing(fakeData || [])
   }
 
   const changeStatus = async (entity, status) => {
@@ -138,6 +147,7 @@ function ProcessingList(props) {
       <div className='text-right pt-1'>
         <button
           className="btn btn-primary"
+          disabled={!isAllDone}
           onClick={(e) => {
             Utility.redirect(`${ROUTES.DASHBOARD}`)
           }}
