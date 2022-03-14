@@ -15,11 +15,12 @@ function ProcessingList(props) {
 
   useEffect(() => {
     getData().catch(e => console.log(e))
+    const intervalId = setInterval(async () => {
+      if (props.userId) {
+        getData().catch(e => console.log(e)) // API call
+      }
+    }, 15*1000);
   }, [])
-
-  let intervalId = setInterval(() => {
-    getData().catch(e => console.log(e))
-  }, 5000)
 
   const getData = async () => {
     const payload = {
@@ -35,7 +36,9 @@ function ProcessingList(props) {
         if(!isEmpty(data)){
           let isDone = !data.some(process => process?.status?.toLowerCase() !== 'done') || false
           if(isDone){
-            clearInterval(intervalId)
+            for (var i = 1; i < 99999; i++){
+              window.clearInterval(i);
+            }
             setIsAllDone(isDone)
           }
         }
